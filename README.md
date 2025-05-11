@@ -2,6 +2,7 @@
 The workflow design is primarily intended for the detection and quantification of antisense transcripts from any organism using raw ssRNA-seq data (for any number of conditions and replicates), based on Bash and R as programming engines. 
 
 User Manual for the Pipeline
+
 To define parameters and file paths, it is necessary to create a parameters file (params file). A template parameter file is provided to the user for completion. For each variable added, the structure shown before the colon (:) must be strictly followed. If additional variables not present in the template need to be added, their format must match that of the referenced examples, corresponding to the same type of file. The only variation allowed is in the first number (referring to the condition) and the second number (referring to the replicate). The numerical order of samples, replicates, and conditions must be respected. There is no limit to the number of conditions or samples that can be added.
 
 The variables included in the parameter file are as follows (as they appear in the template):
