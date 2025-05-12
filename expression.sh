@@ -21,7 +21,7 @@ cd $SAMPLE_PATH
 stringtie -G ../../../results/annot_with_antisense.gtf -o sample_${SAMPLE}.gtf sample_${SAMPLE}_antisense_reads.bam
 stringtie -e -G ../../../results/annot_with_antisense.gtf -o sample_c${CONDITION}_${SAMPLE}.gtf -A sample_c${CONDITION}_${SAMPLE}.tsv sample_${SAMPLE}_antisense_reads.bam
 
-featureCounts -s 0 -g gene_id -a ../../../results/annot_merged_filtered.gtf -o sample_c${CONDITION}_${SAMPLE}.txt sample_${SAMPLE}_antisense_reads.bam
+featureCounts -s 0 -g gene_id -a ../../../results/annot_with_antisense.gtf -o sample_c${CONDITION}_${SAMPLE}.txt sample_${SAMPLE}_antisense_reads.bam
 realpath sample_c${CONDITION}_${SAMPLE}.txt >> $INSDIR/$EXP/scripts/expression_count.txt
 
 NUM_LINES_EXPRESSION=$(wc -l < $INSDIR/$EXP/scripts/expression_count.txt)
