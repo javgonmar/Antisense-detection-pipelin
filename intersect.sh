@@ -31,7 +31,7 @@ then
 		sleep 1
 	done
 	echo "Filtered gtf file was created"
-	cat annot_merged_filtered.gtf ../annotation/annot.gtf >> annot_with_antisense.gtf
+	cat ../annotation/annot.gtf annot_merged_filtered.gtf >> annot_with_antisense.gtf
 	cuffcompare -r ../annotation/annot.gtf -o cuffcompare annot_with_antisense.gtf
 	gffcompare -r ../annotation/annot.gtf -o gffcompare annot_with_antisense.gtf
 	paste cuffcompare.tracking gffcompare.tracking > fusion_compare.tracking
