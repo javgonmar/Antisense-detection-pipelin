@@ -23,7 +23,7 @@ mv sample_${I}_fastqc.zip sample_c${CONDITION}_${I}.zip
 STAR --genomeDir $INDEX --readFilesIn $SAMPLE_PATH --readFilesCommand "gunzip -c" --outSAMtype BAM SortedByCoordinate --outSAMstrandField intronMotif --outFilterIntronMotifs RemoveNoncanonical --alignIntronMax 1000 --outFileNamePrefix sample_$I 
 samtools index sample_${I}Aligned.sortedByCoord.out.bam
 bamCoverage -b sample_${I}Aligned.sortedByCoord.out.bam --filterRNAstrand reverse -o bamCoverage_${I}.bw
-bedtools intersect -abam sample_${I}Aligned.sortedByCoord.out.bam -b ../../../annotation/annot.bed -s > sample_${I}_antisense_reads.bam
+bedtools intersect -abam sample_${I}Aligned.sortedByCoord.out.bam -b ../../../annotation/annot.bed -S > sample_${I}_antisense_reads.bam
 samtools index sample_${I}_antisense_reads.bam
 bamCoverage -b sample_${I}_antisense_reads.bam --filterRNAstrand reverse -o antisense_reads_${I}.bw
 
